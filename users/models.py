@@ -32,12 +32,10 @@ class User(AbstractUser):
         (CURRENCY_BWP, "BWP"),
     )
 
-    avatar = models.ImageField(null=True, blank=True)
-    gender = models.CharField(
-        choices=GENDER_CHOICES, max_length=10, null=True, blank=True
-    )
-    bio = models.TextField(default="", blank=True)
-    birthDate = models.DateField(null=True, blank=True)
+    avatar = models.ImageField(blank=True)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
+    bio = models.TextField(blank=True)
+    birthDate = models.DateField(blank=True, null=True)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=10, blank=True)
     currency = models.CharField(choices=CURRENCY_CHOICES, max_length=3, blank=True)
     superhost = models.BooleanField(default=False)
